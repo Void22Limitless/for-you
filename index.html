@@ -32,17 +32,18 @@
     }
 
     .petal {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: min(18vw, 70px);
-      height: min(12vw, 45px);
-      background: linear-gradient(135deg, #c9184a, #ff758f);
-      border-radius: 60% 40% 60% 40%;
-      transform-origin: left center;
-      opacity: 0;
-      animation: bloom 0.6s ease forwards;
-    }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(18vw, 70px);
+  height: min(12vw, 45px);
+  background: linear-gradient(135deg, #c9184a, #ff758f);
+  border-radius: 60% 40% 60% 40%;
+  transform-origin: center center;
+  opacity: 0;
+  animation: bloom 0.6s ease forwards;
+}
+
 
     /* 💌 TEXT */
     .text {
@@ -76,18 +77,23 @@
 
     /* ✨ Animations */
     @keyframes bloom {
-      from {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.3) rotate(var(--r));
-      }
-      to {
-        opacity: 1;
-        transform: translate(-50%, -50%)
-          scale(var(--s))
-          rotate(var(--r))
-          translateX(var(--x));
-      }
-    }
+  from {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      scale(0.2)
+      rotate(var(--r));
+  }
+  to {
+    opacity: 1;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--r))
+      translate(var(--d))
+      scale(var(--s));
+  }
+}
+
 
     @keyframes fadeIn {
       to { opacity: 1; }
@@ -121,24 +127,25 @@
 <script>
   /* 🌹 ROSE LOGIC */
   const rose = document.getElementById("rose");
-  const GOLDEN_ANGLE = 137.5;
-  const PETALS = 32;
+const GOLDEN_ANGLE = 137.5;
+const PETALS = 32;
 
-  for (let i = 0; i < PETALS; i++) {
-    const petal = document.createElement("div");
-    petal.className = "petal";
+for (let i = 0; i < PETALS; i++) {
+  const petal = document.createElement("div");
+  petal.className = "petal";
 
-    const angle = i * GOLDEN_ANGLE;
-    const radius = Math.sqrt(i) * 4;
-    const scale = 0.45 + i * 0.018;
+  const angle = i * GOLDEN_ANGLE;
+  const distance = Math.sqrt(i) * 6; // jarak dari pusat
+  const scale = 0.4 + i * 0.02;
 
-    petal.style.setProperty("--r", `${angle}deg`);
-    petal.style.setProperty("--x", `${radius}px`);
-    petal.style.setProperty("--s", scale.toFixed(2));
-    petal.style.animationDelay = `${i * 0.12}s`;
+  petal.style.setProperty("--r", `${angle}deg`);
+  petal.style.setProperty("--d", `${distance}px`);
+  petal.style.setProperty("--s", scale.toFixed(2));
+  petal.style.animationDelay = `${i * 0.12}s`;
 
-    rose.appendChild(petal);
-  }
+  rose.appendChild(petal);
+}
+
 
   /* ❤️ FLOATING HEARTS (HP FRIENDLY) */
   setInterval(() => {
