@@ -1,167 +1,156 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Untuk Kamu 🌹</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Untuk Kamu 🌹</title>
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #ffe6eb, #d6336c);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: "Segoe UI", sans-serif;
-      overflow: hidden;
-    }
-
-    .container {
-      text-align: center;
-      padding: 20px;
-      z-index: 2;
-    }
-
-    /* 🌹 ROSE (RESPONSIVE) */
-    .rose {
-      position: relative;
-      width: min(65vw, 240px);
-      height: min(65vw, 240px);
-      margin: 0 auto 20px;
-    }
-
-    .petal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: min(18vw, 70px);
-  height: min(12vw, 45px);
-  background: linear-gradient(135deg, #c9184a, #ff758f);
-  border-radius: 60% 40% 60% 40%;
-  transform-origin: center center;
-  opacity: 0;
-  animation: bloom 0.6s ease forwards;
-}
-
-
-    /* 💌 TEXT */
-    .text {
-      opacity: 0;
-      animation: fadeIn 2s ease forwards;
-      animation-delay: 4.5s;
-      color: #5a0f2e;
-    }
-
-    h1 {
-      font-size: clamp(1.4rem, 5vw, 2rem);
-      margin-bottom: 8px;
-    }
-
-    p {
-      font-size: clamp(0.9rem, 4vw, 1.05rem);
-      max-width: 320px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    /* ❤️ FLOATING HEARTS */
-    .heart {
-      position: absolute;
-      bottom: -20px;
-      color: rgba(255, 255, 255, 0.6);
-      animation: floatUp linear forwards;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    /* ✨ Animations */
-    @keyframes bloom {
-  from {
-    opacity: 0;
-    transform:
-      translate(-50%, -50%)
-      scale(0.2)
-      rotate(var(--r));
-  }
-  to {
-    opacity: 1;
-    transform:
-      translate(-50%, -50%)
-      rotate(var(--r))
-      translate(var(--d))
-      scale(var(--s));
-  }
-}
-
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    @keyframes floatUp {
-      from {
-        transform: translateY(0) scale(0.6);
-        opacity: 0.8;
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: radial-gradient(circle at top, #ffe6eb, #d6336c);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", sans-serif;
+        overflow: hidden;
       }
-      to {
-        transform: translateY(-110vh) scale(1.1);
+
+      .container {
+        text-align: center;
+        padding: 20px;
+        z-index: 2;
+      }
+
+      /* 🌹 ROSE (RESPONSIVE) */
+      .rose {
+        position: relative;
+        width: min(65vw, 240px);
+        height: min(65vw, 240px);
+        margin: 0 auto 20px;
+      }
+
+      .petal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: min(18vw, 70px);
+        height: min(12vw, 45px);
+        background: linear-gradient(135deg, #c9184a, #ff758f);
+        border-radius: 60% 40% 60% 40%;
+        transform-origin: center center;
         opacity: 0;
+        animation: bloom 0.6s ease forwards;
       }
-    }
-  </style>
-</head>
-<body>
 
-<div class="container">
-  <div class="rose" id="rose"></div>
+      /* 💌 TEXT */
+      .text {
+        opacity: 0;
+        animation: fadeIn 2s ease forwards;
+        animation-delay: 4.5s;
+        color: #5a0f2e;
+      }
 
-  <div class="text">
-    <h1>Untuk Kamu 🌹</h1>
-    <p>
-      Halo bee ❤️❤️❤️
-    </p>
-  </div>
-</div>
+      h1 {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+        margin-bottom: 8px;
+      }
 
-<script>
-  /* 🌹 ROSE LOGIC */
-  const rose = document.getElementById("rose");
-const GOLDEN_ANGLE = 137.5;
-const PETALS = 32;
+      p {
+        font-size: clamp(0.9rem, 4vw, 1.05rem);
+        max-width: 320px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
 
-for (let i = 0; i < PETALS; i++) {
-  const petal = document.createElement("div");
-  petal.className = "petal";
+      /* ❤️ FLOATING HEARTS */
+      .heart {
+        position: absolute;
+        bottom: -20px;
+        color: rgba(255, 255, 255, 0.6);
+        animation: floatUp linear forwards;
+        z-index: 1;
+        pointer-events: none;
+      }
 
-  const angle = i * GOLDEN_ANGLE;
-  const distance = Math.sqrt(i) * 6; // jarak dari pusat
-  const scale = 0.4 + i * 0.02;
+      /* ✨ Animations */
+      @keyframes bloom {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.2) rotate(var(--r));
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%) rotate(var(--r)) translate(var(--d))
+            scale(var(--s));
+        }
+      }
 
-  petal.style.setProperty("--r", `${angle}deg`);
-  petal.style.setProperty("--d", `${distance}px`);
-  petal.style.setProperty("--s", scale.toFixed(2));
-  petal.style.animationDelay = `${i * 0.12}s`;
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
 
-  rose.appendChild(petal);
-}
+      @keyframes floatUp {
+        from {
+          transform: translateY(0) scale(0.6);
+          opacity: 0.8;
+        }
+        to {
+          transform: translateY(-110vh) scale(1.1);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="rose" id="rose"></div>
 
+      <div class="text">
+        <h1>Untuk Kamu 🌹</h1>
+        <p>Halo bee ❤️❤️❤️</p>
+      </div>
+    </div>
 
-  /* ❤️ FLOATING HEARTS (HP FRIENDLY) */
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "♥";
+    <script>
+      /* 🌹 ROSE LOGIC */
+      const rose = document.getElementById("rose");
+      const GOLDEN_ANGLE = 137.5;
+      const PETALS = 32;
 
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = 6 + Math.random() * 3 + "s";
-    heart.style.fontSize = 10 + Math.random() * 10 + "px";
+      for (let i = 0; i < PETALS; i++) {
+        const petal = document.createElement("div");
+        petal.className = "petal";
 
-    document.body.appendChild(heart);
+        const angle = i * GOLDEN_ANGLE;
+        const distance = Math.sqrt(i) * 6; // jarak dari pusat
+        const scale = 0.4 + i * 0.02;
 
-    setTimeout(() => heart.remove(), 9000);
-  }, 900);
-</script>
+        petal.style.setProperty("--r", `${angle}deg`);
+        petal.style.setProperty("--d", `${distance}px`);
+        petal.style.setProperty("--s", scale.toFixed(2));
+        petal.style.animationDelay = `${i * 0.12}s`;
 
-</body>
+        rose.appendChild(petal);
+      }
+
+      /* ❤️ FLOATING HEARTS (HP FRIENDLY) */
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "♥";
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 6 + Math.random() * 3 + "s";
+        heart.style.fontSize = 10 + Math.random() * 10 + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 9000);
+      }, 900);
+    </script>
+  </body>
 </html>
